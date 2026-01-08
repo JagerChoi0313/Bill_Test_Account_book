@@ -5,7 +5,8 @@ import App from './App'
 import sum from '@/test'
 import { RouterProvider } from 'react-router-dom'
 import router from '@/router'
-
+import {Provider} from 'react-redux'
+import store from './store'
 
 //导入定制主题文件
 import './theme.css'
@@ -16,8 +17,10 @@ console.log(total)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-  <RouterProvider router={router} />
+  <Provider store={store}>
+<RouterProvider router={router} />
+  </Provider>
+  
 
 )
 
