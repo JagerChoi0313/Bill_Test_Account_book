@@ -4,26 +4,31 @@ import Month from '@/pages/Month'
 import Year from '@/pages/Year'
 import Layout from '@/pages/Layout'
 import New from '@/pages/New'
-import {createBrowserRouter} from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Layout/>,
-        children:[
+        path: '/',
+        element: <Layout />,
+        children: [
             {
-                path:'month',
-                element:<Month/>
+                path: '',
+                element: <Navigate to="/month" replace />
             },
             {
-                path:'year',
-                element:<Year/>
+                path: 'month',
+                element: <Month />
+            },
+            {
+                path: 'year',
+                element: <Year />
             }
         ]
     },
     {
-        path:'/new',
-        element:<New/>
+        path: '/new',
+        element: <New />
     }
 ])
 
